@@ -28,10 +28,12 @@ export const Menu = ({ documentId }: MenuProps) => {
     const promise = archive({ id: documentId });
     toast.promise(promise, {
       loading: "Moving to trash...",
-      success: "Npte moved to trash!",
+      success: "Note moved to trash!",
       error: "Failed to archive note.",
     });
+    router.push("/documents");
   };
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -51,7 +53,7 @@ export const Menu = ({ documentId }: MenuProps) => {
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <div className="text-xs text-muted-foreground p-2">
-          Last edited by:{user?.fullName}
+          Last edited by: {user?.username}
         </div>
       </DropdownMenuContent>
     </DropdownMenu>
