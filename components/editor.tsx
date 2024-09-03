@@ -26,7 +26,6 @@ function Editor({ onChange, initialContent, editable }: EditorProps) {
   };
 
   const editor: BlockNoteEditor = useCreateBlockNote({
-    editable,
     initialContent: initialContent
       ? (JSON.parse(initialContent) as PartialBlock[])
       : undefined,
